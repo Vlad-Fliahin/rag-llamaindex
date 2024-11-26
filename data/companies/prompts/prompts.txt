@@ -1,0 +1,14 @@
+Generate me a private corpus with some details mentioning the imagined Ukraine Boats Inc. 
+A list of products, prices, responsible stuff, etc.
+I want to use it as my private corpus for the RAG use-case
+You can generate really a lot of the text. The more the better. 
+
+====
+
+Yeah, proceed with partnerships, legal policies, competitions participated
+Maybe info about where we manufacture our boats (and add some custom ones)
+
+====
+
+add client use studies
+
