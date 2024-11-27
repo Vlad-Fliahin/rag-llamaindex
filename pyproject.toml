@@ -1,0 +1,61 @@
+[configuration]
+similarity_top_k = 10
+vector_store_query_mode = "default"
+similarity_cutoff = 0.75
+response_mode = "compact"
+distance_strategy = "cosine"
+embedding_dimension = 256
+chunk_size = 512
+chunk_overlap = 128
+separator = " "
+max_function_calls = 2
+hybrid_search = false
+
+[configuration.data]
+raw_data_path = "../data/companies"
+dataset_path = "../data/companies/dataset.json"
+source_docs = ["city-solve.txt", "aero-vance-aviation.txt", "nova-drive-motors.txt", "ukraine-boats.txt"]
+
+[configuration.models]
+llm = "gpt-4o-mini"
+embedding_model = "text-embedding-3-small"
+temperature = 0
+llm_hf = "meta-llama/Llama-3.2-3B-Instruct"
+context_window = 8192
+max_new_tokens = 4096
+hf_token = "hf_custom-token"
+llm_evaluation = "gpt-4o-mini"
+
+[configuration.db]
+url = "neo4j+s://custom-url"
+username = "neo4j"
+password = "custom-password"
+database = "neo4j" 
+index_name = "article" # change if you want to load the new data that won't intersect with the previous uploads
+text_node_property = "text"
+
+[tool.poetry]
+name = "rag-llamaindex"
+version = "0.1.0"
+description = "PoC depicting the importance of the RAG technique for the new data access"
+authors = ["Vladyslav Fliahin <vladyslav.fliahin@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11.6"
+llama-index = "*"
+ipykernel = "^6.29.5"
+python-dotenv = "^1.0.1"
+llama-index-vector-stores-neo4jvector = "*"
+trulens-eval = "^1.2.7"
+trulens-apps-llamaindex = "^1.2.7"
+trulens-providers-openai = "^1.2.7"
+tomli = "^2.1.0"
+llama-index-llms-huggingface = "^0.4.0"
+huggingface-hub = "0.23.5"
+trulens-providers-huggingface = "^1.2.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
